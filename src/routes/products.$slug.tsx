@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Download, Phone, MessageCircle, ImageIcon } from "lucide-react";
-import { getProduct, relatedProducts, SITE } from "@/data/products";
+import { getProduct, relatedProducts, SITE, type Product } from "@/data/products";
 import { SiteLayout } from "@/components/SiteLayout";
 import { CategoryCard } from "@/components/CategoryCard";
 import { CategoryIcon } from "@/components/CategoryIcon";
@@ -11,7 +11,7 @@ export const Route = createFileRoute("/products/$slug")({
   loader: ({ params }) => {
     const product = getProduct(params.slug);
     if (!product) throw notFound();
-    return { product };
+    return { product: product as Product };
   },
   head: ({ loaderData }) => ({
     meta: loaderData
