@@ -42,7 +42,8 @@ export const Route = createFileRoute("/products/$slug")({
 });
 
 function ProductDetail() {
-  const { product } = Route.useLoaderData();
+  const { slug } = Route.useParams();
+  const product = getProduct(slug)!;
   const related = relatedProducts(product.slug, 3);
   const waMsg = encodeURIComponent(`سلام، درباره محصول «${product.shortTitle}» نیاز به استعلام قیمت دارم.`);
 
