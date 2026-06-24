@@ -4,6 +4,8 @@ import { Phone, MapPin, Clock, Mail, Instagram, MessageCircle, Send } from "luci
 import { SITE } from "@/data/products";
 import { SiteLayout } from "@/components/SiteLayout";
 import { CircuitBackdrop } from "@/components/CircuitBackdrop";
+import { PhotoBackdrop } from "@/components/PhotoBackdrop";
+import contactBg from "@/assets/bg-sunburst.jpg.asset.json";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -40,6 +42,7 @@ function ContactPage() {
   return (
     <SiteLayout>
       <section className="relative overflow-hidden border-b border-border">
+        <PhotoBackdrop src={contactBg.url} intensity={0.3} />
         <CircuitBackdrop className="opacity-50" />
         <div className="container relative mx-auto px-4 py-16 md:py-24">
           <div className="text-xs font-bold text-primary mb-3">در خدمت شما هستیم</div>
