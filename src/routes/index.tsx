@@ -5,7 +5,7 @@ import { PRODUCTS, SITE } from "@/data/products";
 import { SiteLayout } from "@/components/SiteLayout";
 import { CircuitBackdrop } from "@/components/CircuitBackdrop";
 import { PhotoBackdrop } from "@/components/PhotoBackdrop";
-import heroBg from "@/assets/bg-lighting-wall.jpg.asset.json";
+import heroBg from "@/assets/bg-brass-sconce.jpg.asset.json";
 import ctaBg from "@/assets/bg-sunburst.jpg.asset.json";
 import { CategoryCard } from "@/components/CategoryCard";
 import { BrandMarquee } from "@/components/BrandMarquee";
