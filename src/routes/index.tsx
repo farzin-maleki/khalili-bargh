@@ -4,6 +4,9 @@ import { ArrowLeft, ShieldCheck, BadgeCheck, Truck, HeadphonesIcon, Zap } from "
 import { PRODUCTS, SITE } from "@/data/products";
 import { SiteLayout } from "@/components/SiteLayout";
 import { CircuitBackdrop } from "@/components/CircuitBackdrop";
+import { PhotoBackdrop } from "@/components/PhotoBackdrop";
+import heroBg from "@/assets/bg-lighting-wall.jpg.asset.json";
+import ctaBg from "@/assets/bg-sunburst.jpg.asset.json";
 import { CategoryCard } from "@/components/CategoryCard";
 import { BrandMarquee } from "@/components/BrandMarquee";
 import { toFa } from "@/lib/fa";
@@ -34,6 +37,7 @@ function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0" style={{ background: "var(--gradient-glow)" }} />
+        <PhotoBackdrop src={heroBg.url} intensity={0.28} position="center" />
         <CircuitBackdrop />
         <div className="container relative mx-auto px-4 pt-20 pb-24 md:pt-28 md:pb-32">
           <div className="max-w-3xl">
@@ -124,6 +128,7 @@ function HomePage() {
       {/* CTA STRIP */}
       <section className="container mx-auto px-4 py-20 md:py-28">
         <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 md:p-16">
+          <PhotoBackdrop src={ctaBg.url} intensity={0.32} />
           <CircuitBackdrop className="opacity-50" />
           <div className="relative grid gap-8 md:grid-cols-[1fr_auto] items-center">
             <div>
