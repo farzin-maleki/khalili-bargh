@@ -32,7 +32,7 @@ function ContactPage() {
     { icon: Phone, title: "تلفن فروشگاه", value: SITE.phone, href: `tel:${SITE.phoneRaw}` },
     { icon: MessageCircle, title: "موبایل / واتس‌اپ", value: SITE.mobile, href: `https://wa.me/${SITE.whatsapp}` },
     { icon: Mail, title: "ایمیل", value: SITE.email, href: `mailto:${SITE.email}`, ltr: true },
-    { icon: Instagram, title: "اینستاگرام", value: `@${SITE.instagram}`, href: `https://instagram.com/${SITE.instagram}`, ltr: true },
+    { icon: Instagram, title: "اینستاگرام", value: `${SITE.instagram}@`, href: `https://instagram.com/${SITE.instagram}`, ltr: true },
     { icon: MapPin, title: "نشانی فروشگاه", value: SITE.address },
     { icon: Clock, title: "ساعات کاری", value: SITE.hours },
   ];

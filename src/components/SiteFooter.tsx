@@ -43,7 +43,7 @@ export function SiteFooter() {
             <li className="flex gap-2"><Clock className="h-4 w-4 mt-0.5 text-primary shrink-0" /><span>{SITE.hours}</span></li>
             <li>
               <a href={`https://instagram.com/${SITE.instagram}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-primary transition">
-                <Instagram className="h-4 w-4 text-primary" />@{SITE.instagram}
+                <Instagram className="h-4 w-4 text-primary" />{SITE.instagram}@
               </a>
             </li>
           </ul>

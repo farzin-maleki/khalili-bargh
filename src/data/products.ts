@@ -272,15 +272,15 @@ export function relatedProducts(slug: string, n = 3) {
 
 // EDIT THESE — visible site-wide contact details
 export const SITE = {
-  name: "الکتروسنتر",
+  name: "کالای برق خلیلی",
   tagline: "تأمین‌کننده تخصصی تجهیزات برق و روشنایی ساختمان",
   phone: "۰11-42277443 / 09373240136",
   phoneRaw: "01142277443",
   mobile: "۰11-42277443",
   mobileRaw: "01142277443",
   whatsapp: "989373240136",
-  email: "info@electrocenter.ir",
-  instagram: "electrocenter.ir",
+  email: "khalilielectric1@gmail.com",
+  instagram: "khalilielectric1",
   address: "قائمشهر _ خیابان تهران _ نبش البرز ۶۳ _ کالای برق خلیلی",
-  hours: "شنبه تا پنجشنبه — ۹:۰۰ تا ۲۰:۰۰",
+  hours: "شنبه تا پنجشنبه — ۸:۰۰ تا ۲۱:۰۰",
 };
