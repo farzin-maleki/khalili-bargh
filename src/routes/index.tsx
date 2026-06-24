@@ -37,7 +37,7 @@ function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0" style={{ background: "var(--gradient-glow)" }} />
-        <PhotoBackdrop src={heroBg.url} intensity={0.28} position="center" />
+        <PhotoBackdrop src={heroBg.url} intensity={0.6} position="center" />
         <CircuitBackdrop />
         <div className="container relative mx-auto px-4 pt-20 pb-24 md:pt-28 md:pb-32">
           <div className="max-w-3xl">
