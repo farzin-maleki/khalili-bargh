@@ -272,7 +272,7 @@ export function relatedProducts(slug: string, n = 3) {
 
 // EDIT THESE — visible site-wide contact details
 export const SITE = {
-  name: "الکتروسنتر",
+  name: "کالای برق خلیلی",
   tagline: "تأمین‌کننده تخصصی تجهیزات برق و روشنایی ساختمان",
   phone: "۰11-42277443 / 09373240136",
   phoneRaw: "01142277443",
