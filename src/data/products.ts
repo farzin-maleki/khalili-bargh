@@ -279,8 +279,8 @@ export const SITE = {
   mobile: "۰11-42277443",
   mobileRaw: "01142277443",
   whatsapp: "989373240136",
-  email: "info@electrocenter.ir",
-  instagram: "electrocenter.ir",
+  email: "khalilielectric1@gmail.com",
+  instagram: "khalilielectric1",
   address: "قائمشهر _ خیابان تهران _ نبش البرز ۶۳ _ کالای برق خلیلی",
-  hours: "شنبه تا پنجشنبه — ۹:۰۰ تا ۲۰:۰۰",
+  hours: "شنبه تا پنجشنبه — ۸:۰۰ تا ۲۱:۰۰",
 };
