@@ -1,16 +1,16 @@
 @font-face {
   font-family:Vazirmatn;
-  src:url('fonts/Vazirmatn-400.woff2') format('woff2');
+  src:url('../public/fonts/Vazirmatn-400.woff2') format('woff2');
   font-weight:400;
   font-display:swap}
 @font-face {
   font-family:Vazirmatn;
-  src:url('fonts/Vazirmatn-700.woff2') format('woff2');
+  src:url('../public/fonts/Vazirmatn-700.woff2') format('woff2');
   font-weight:700;
   font-display:swap}
 @font-face {
   font-family:Vazirmatn;
-  src:url('fonts/Vazirmatn-900.woff2') format('woff2');
+  src:url('../public/fonts/Vazirmatn-900.woff2') format('woff2');
   font-weight:900;
   font-display:swap}
 
@@ -794,7 +794,7 @@ footer>.container {
 }
 
 .hero-photo {
-  background:linear-gradient(90deg,#100f0df2 0%,#100f0da8 52%,#100f0d28),url('public/backgrounds/home.jpg') center/cover}
+  background:linear-gradient(90deg,#100f0df2 0%,#100f0da8 52%,#100f0d28),url('../public/Images/background/home.jpg') center/cover}
 .home-cta {
   padding:85px 0;
   background:linear-gradient(110deg,#211b10,#15130f);
@@ -843,7 +843,7 @@ img { max-width: 100%; }
 .skip-link:focus { top: 10px; }
 .hero-photo {
   background: linear-gradient(270deg, #100f0df5 8%, #100f0dd9 43%, #100f0d32 100%),
-    url("public/backgrounds/home.jpg") left 44% / cover;
+    url("../public/Images/background/home.jpg") left 44% / cover;
 }
 .hero:after { background: linear-gradient(0deg, #100f0d8a, transparent 30%); }
 .hero-content { animation: reveal .65s ease both; }
@@ -919,7 +919,7 @@ button:disabled { cursor: default; opacity: .35; }
   .catalog-order { align-items: flex-start; flex-direction: column; gap: 12px; }
   .filters { gap: 7px; }
   .filter { min-height: 42px; }
-  .hero-photo { background-image: linear-gradient(#100f0dbb, #100f0ded), url("public/backgrounds/home.jpg"); }
+  .hero-photo { background-image: linear-gradient(#100f0dbb, #100f0ded), url("../public/Images/background/home.jpg"); }
   .inner-hero { padding-top: 55px; }
   .card-media { height: 205px; }
   .contact-details b { overflow-wrap: anywhere; }

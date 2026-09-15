@@ -105,10 +105,10 @@ input::placeholder, textarea::placeholder, .search input::placeholder { color: v
  * dedicated background panel rather than stretching it across a wide banner.
  * The text remains on its own opaque surface, with no dark wash over the photo.
  */
-body[data-page="home"] { --page-image: url("public/backgrounds/home.jpg"); }
-body[data-page="products"] { --page-image: url("public/backgrounds/products.jpg"); }
-body[data-page="about"] { --page-image: url("public/backgrounds/about.jpg"); }
-body[data-page="contact"] { --page-image: url("public/backgrounds/contact.jpg"); }
+body[data-page="home"] { --page-image: url("../public/Images/background/home.jpg"); }
+body[data-page="products"] { --page-image: url("../public/Images/background/products.jpg"); }
+body[data-page="about"] { --page-image: url("../public/Images/background/about.jpg"); }
+body[data-page="contact"] { --page-image: url("../public/Images/background/contact.jpg"); }
 .hero.hero-photo, .inner-hero {
   position: relative;
   isolation: isolate;

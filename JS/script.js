@@ -1,6 +1,9 @@
 /* Shared page behaviour. Product content lives in catalog.js. No libraries or build step. */
 (() => {
   "use strict";
+  // Resolve shared links and assets from the site root, including subfolder hosting.
+  const siteRoot = new URL("../", document.currentScript.src);
+  const siteUrl = (path) => new URL(path, siteRoot).href;
   const { categories, products, brands } = window.CATALOG;
   const shop = window.SHOP;
   const $ = (selector) => document.querySelector(selector);
@@ -47,7 +50,7 @@
   const catalogueUrl = (categoryId, brandId = "") => {
     const params = new URLSearchParams({ category: categoryId });
     if (brandId) params.set("brand", brandId);
-    return "products.html?" + params;
+    return siteUrl("pages/products.html") + "?" + params + (brandId ? "#productResults" : "");
   };
   const brandLinks = (product) =>
     (product.brands || [])
@@ -65,7 +68,7 @@
     });
     const brand = brandForProduct(product);
     if (product.kind !== "group" && brand) params.set("brand", brand.id);
-    return "product.html?" + params;
+    return siteUrl("pages/product.html") + "?" + params;
   };
   // Accept only local image assets, even when catalogue content is later imported.
   const imagePath = (path) =>
@@ -82,7 +85,7 @@
       .filter((image) => imagePath(image.src));
   const setBackground = (element, path) => {
     if (element && imagePath(path))
-      element.style.setProperty("--page-image", 'url("' + path + '")');
+      element.style.setProperty("--page-image", 'url("' + siteUrl(path) + '")');
   };
 
   function card(product) {
@@ -90,7 +93,7 @@
     const photo = photoList(product)[0];
     const source = photo?.src || imagePath(category?.background);
     return `<a class="product-card" href="${escape(productUrl(product))}">
-      <div class="card-media ${photo ? "product-photo" : ""}">${source ? `<img src="${escape(source)}" alt="${photo ? escape(photo.alt || product.title) : ""}" loading="lazy" width="640" height="400">` : ""}
+      <div class="card-media ${photo ? "product-photo" : ""}">${source ? `<img src="${escape(siteUrl(source))}" alt="${photo ? escape(photo.alt || product.title) : ""}" loading="lazy" width="640" height="400">` : ""}
       <span class="card-kind">${product.kind === "group" ? "گروه کالا" : "محصول"}</span></div>
       <div class="card-content"><small>${escape(category?.title || "")}</small>
       <h3>${escape(product.title)}</h3><p>${escape(product.tagline)}</p>
@@ -145,7 +148,7 @@
   onScroll();
 
   const page = document.body.dataset.page;
-  setBackground($(".inner-hero"), `public/backgrounds/${page}.jpg`);
+  setBackground($(".inner-hero"), `public/Images/background/${page}.jpg`);
   document
     .querySelectorAll("[data-category-count]")
     .forEach((element) => (element.textContent = fa(categories.length)));
@@ -205,7 +208,7 @@
         history.replaceState(
           null,
           "",
-          location.pathname + (params.size ? "?" + params : ""),
+          location.pathname + (params.size ? "?" + params : "") + location.hash,
         );
       } catch {}
     }
@@ -340,6 +343,14 @@
     });
     readState();
     render();
+    // Brand links land at the filtered results, after the cards have rendered.
+    if (location.hash === "#productResults") {
+      requestAnimationFrame(() => {
+        const results = $("#productResults");
+        results.scrollIntoView({ block: "start" });
+        results.focus({ preventScroll: true });
+      });
+    }
   }
 
   if (page === "product") {
@@ -358,10 +369,10 @@
       document.title = "محصول یافت نشد | " + shop.name;
       root.innerHTML = `<section class="container not-found"><p class="eyebrow plain">کاتالوگ محصولات</p>
         <h1>محصول پیدا نشد</h1><p>لینک این محصول معتبر نیست یا اطلاعات آن تغییر کرده است.</p>
-        <a class="button primary" href="products.html">بازگشت به محصولات ←</a></section>`;
+        <a class="button primary" href="${escape(siteUrl("pages/products.html"))}">بازگشت به محصولات ←</a></section>`;
       return;
     }
-    // Older group URLs can also select a brand: product.html?id=2&brand=deland.
+    // Older group URLs can also select a brand: pages/product.html?id=2&brand=deland.
     if (product.kind === "group" && selectedBrand) {
       window.location.replace(
         catalogueUrl(product.categoryId, selectedBrand.id),
@@ -380,22 +391,22 @@
         "» نیاز به راهنمایی و استعلام قیمت دارم.",
     );
     root.innerHTML = `<section class="detail-banner inner-hero"><div class="container">
-      <nav class="breadcrumbs" aria-label="مسیر صفحه"><a href="index.html">خانه</a><span>/</span>
-      <a href="products.html">محصولات</a><span>/</span><a href="${escape(catalogueUrl(product.categoryId))}">${escape(category?.title)}</a>
+      <nav class="breadcrumbs" aria-label="مسیر صفحه"><a href="${escape(siteUrl("index.html"))}">خانه</a><span>/</span>
+      <a href="${escape(siteUrl("pages/products.html"))}">محصولات</a><span>/</span><a href="${escape(catalogueUrl(product.categoryId))}">${escape(category?.title)}</a>
       ${product.kind !== "group" && modelBrand ? `<span>/</span><a href="${escape(catalogueUrl(product.categoryId, modelBrand.id))}">${escape(modelBrand.title)}</a><span>/</span><span aria-current="page">${escape(product.title)}</span>` : ""}</nav>
       <p class="eyebrow plain">${product.kind === "group" ? "معرفی گروه کالا" : "معرفی محصول"}</p><h1>${escape(product.title)}</h1>
       <p>${escape(product.tagline)}</p></div></section>
       <section class="container product-detail"><div class="gallery">
         ${
           photos.length
-            ? `<div class="gallery-main"><img id="mainPhoto" src="${escape(photos[0].src)}" alt="${escape(photos[0].alt || product.title)}"></div>
+            ? `<div class="gallery-main"><img id="mainPhoto" src="${escape(siteUrl(photos[0].src))}" alt="${escape(photos[0].alt || product.title)}"></div>
         ${
           photos.length > 1
             ? `<div class="gallery-thumbs" aria-label="تصاویر محصول">${photos
                 .map(
                   (photo, index) =>
                     `<button type="button" data-photo="${index}" aria-pressed="${index === 0}" aria-label="تصویر ${fa(index + 1)}">
-          <img src="${escape(photo.src)}" alt="" loading="lazy"></button>`,
+          <img src="${escape(siteUrl(photo.src))}" alt="" loading="lazy"></button>`,
                 )
                 .join("")}</div>`
             : ""
@@ -409,7 +420,7 @@
         <div class="inquiry-panel"><h3>برای انتخاب مدل مناسب راهنمایی می‌خواهید؟</h3><p>مشخصات، قیمت و موجودی مدل موردنظر را از فروشگاه بپرسید.</p>
         <div class="modal-actions"><a class="button primary" href="tel:${shop.phone}">تماس با فروشگاه</a>
         <a class="button ghost" href="https://wa.me/${shop.whatsapp}?text=${inquiry}" target="_blank" rel="noreferrer">استعلام در واتس‌اپ ↗</a>
-        <a class="text-link" href="contact.html?${escape(new URLSearchParams({ product: product.id }).toString())}">فرم درخواست ←</a></div></div>
+        <a class="text-link" href="${escape(siteUrl("pages/contact.html"))}?${escape(new URLSearchParams({ product: product.id }).toString())}">فرم درخواست ←</a></div></div>
       </div></section>
       <section class="container specifications"><h2>مشخصات فنی</h2>
       ${
@@ -423,7 +434,7 @@
           : `<p class="muted">مشخصات دقیق پس از انتخاب برند و مدل اعلام می‌شود. برای اطلاعات بیشتر با فروشگاه در تماس باشید.</p>`
       }
       </section><section class="container related-section"><div class="section-heading"><h2>بیشتر ببینید</h2>
-      <a class="text-link" href="products.html">همه محصولات ←</a></div><div class="products-grid" id="relatedProducts"></div></section>`;
+      <a class="text-link" href="${escape(siteUrl("pages/products.html"))}">همه محصولات ←</a></div><div class="products-grid" id="relatedProducts"></div></section>`;
     setBackground($(".detail-banner"), category?.background);
     setBackground($(".gallery-placeholder"), category?.background);
     const related = [
@@ -444,7 +455,7 @@
       const mainPhoto = $("#mainPhoto");
       mainPhoto.hidden = false;
       mainPhoto.parentElement.classList.remove("image-unavailable");
-      mainPhoto.src = photo.src;
+      mainPhoto.src = siteUrl(photo.src);
       mainPhoto.alt = photo.alt || product.title;
       document
         .querySelectorAll("[data-photo]")
