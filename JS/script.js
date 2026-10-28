@@ -197,7 +197,7 @@
   onScroll();
 
   const page = document.body.dataset.page;
-  setBackground($(".inner-hero"), `public/Images/background/${page}.jpg`);
+  setBackground($(".inner-hero"), `public/Images/background/${page}.webp`);
   document
     .querySelectorAll("[data-category-count]")
     .forEach((element) => (element.textContent = fa(categories.length)));

@@ -2,12 +2,12 @@
  * This is the only file to edit when adding categories or products.
  * Existing records match the shop's supplied 12 product GROUPS and brand list.
  * Exact model names, product photos and specifications can be added when supplied.
- * Add a category: { id: "lighting", title: "...", background: "public/Images/background/lighting.jpg" }
+ * Add a category: { id: "lighting", title: "...", background: "public/Images/background/lighting.webp" }
  * Add a product to products below, using a permanent, unique id. Never reuse an old id.
  * Example (do not uncomment until real information is ready):
  * { id: "101", slug: "example-lamp", categoryId: "lighting", kind: "product",
  *   title: "...", tagline: "...", description: "...", brands: ["..."],
- *   images: [{ src: "public/Images/products/example/front.jpg", alt: "..." }],
+ *   images: [{ src: "public/Images/products/example/front.webp", alt: "..." }],
  *   specs: [{ label: "...", value: "..." }], featured: true }
  * Link: pages/product.html?id=101 (optional &title=... is cosmetic; data always comes from id).
  * Brands have permanent IDs in CATALOG.brands; product.brands stores their Persian titles.
@@ -264,35 +264,35 @@ window.CATALOG = {
       "brands": [],
       "images": [
         {
-          "src": "public/Images/products/pvc-pipe/general/client-397.png",
+          "src": "public/Images/products/pvc-pipe/general/client-397.webp",
           "alt": "لوله و زانوی برق PVC"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-398.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-398.webp",
           "alt": "لوله و زانوی برق PVC"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-399.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-399.webp",
           "alt": "لوله و زانوی برق PVC"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-400.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-400.webp",
           "alt": "لوله و زانوی برق PVC"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-401.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-401.webp",
           "alt": "لوله و زانوی برق PVC"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-402.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-402.webp",
           "alt": "لوله و زانوی برق PVC"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-403.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-403.webp",
           "alt": "لوله و زانوی برق PVC"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-404.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-404.webp",
           "alt": "لوله و زانوی برق PVC"
         }
       ],
@@ -389,7 +389,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/deland/crystal-pearl-gold.jpg",
+          "src": "public/Images/products/switch-socket/deland/crystal-pearl-gold.webp",
           "alt": "مجموعه کلید و پریز دلند مدل کریستال با قاب صدفی و مکانیزم طلایی"
         }
       ],
@@ -438,35 +438,35 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/wire-cable/semnan/client-164.jpg",
+          "src": "public/Images/products/wire-cable/semnan/client-164.webp",
           "alt": "انواع سیم و کابل سمنان"
         },
         {
-          "src": "public/Images/products/wire-cable/semnan/client-165.jpg",
+          "src": "public/Images/products/wire-cable/semnan/client-165.webp",
           "alt": "انواع سیم و کابل سمنان"
         },
         {
-          "src": "public/Images/products/wire-cable/semnan/client-166.jpg",
+          "src": "public/Images/products/wire-cable/semnan/client-166.webp",
           "alt": "انواع سیم و کابل سمنان"
         },
         {
-          "src": "public/Images/products/wire-cable/semnan/client-167.jpg",
+          "src": "public/Images/products/wire-cable/semnan/client-167.webp",
           "alt": "انواع سیم و کابل سمنان"
         },
         {
-          "src": "public/Images/products/wire-cable/semnan/client-168.jpg",
+          "src": "public/Images/products/wire-cable/semnan/client-168.webp",
           "alt": "انواع سیم و کابل سمنان"
         },
         {
-          "src": "public/Images/products/wire-cable/semnan/client-169.jpg",
+          "src": "public/Images/products/wire-cable/semnan/client-169.webp",
           "alt": "انواع سیم و کابل سمنان"
         },
         {
-          "src": "public/Images/products/wire-cable/semnan/client-170.jpg",
+          "src": "public/Images/products/wire-cable/semnan/client-170.webp",
           "alt": "انواع سیم و کابل سمنان"
         },
         {
-          "src": "public/Images/products/wire-cable/semnan/client-175.jpg",
+          "src": "public/Images/products/wire-cable/semnan/client-175.webp",
           "alt": "انواع سیم و کابل سمنان"
         }
       ],
@@ -513,11 +513,11 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/wire-cable/bartar/client-218.jpg",
+          "src": "public/Images/products/wire-cable/bartar/client-218.webp",
           "alt": "انواع سیم و کابل برتر"
         },
         {
-          "src": "public/Images/products/wire-cable/bartar/client-226.jpg",
+          "src": "public/Images/products/wire-cable/bartar/client-226.webp",
           "alt": "انواع سیم و کابل برتر"
         }
       ],
@@ -543,7 +543,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/wire-cable/amol/client-237.png",
+          "src": "public/Images/products/wire-cable/amol/client-237.webp",
           "alt": "نشان آمل",
           "role": "brand-logo"
         }
@@ -567,51 +567,51 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/deland/client-247.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-247.webp",
           "alt": "کلید و پریز دلند"
         },
         {
-          "src": "public/Images/products/switch-socket/deland/client-248.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-248.webp",
           "alt": "کلید و پریز دلند"
         },
         {
-          "src": "public/Images/products/switch-socket/deland/client-249.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-249.webp",
           "alt": "کلید و پریز دلند"
         },
         {
-          "src": "public/Images/products/switch-socket/deland/client-250.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-250.webp",
           "alt": "کلید و پریز دلند"
         },
         {
-          "src": "public/Images/products/switch-socket/deland/client-251.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-251.webp",
           "alt": "کلید و پریز دلند"
         },
         {
-          "src": "public/Images/products/switch-socket/deland/client-252.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-252.webp",
           "alt": "کلید و پریز دلند"
         },
         {
-          "src": "public/Images/products/switch-socket/deland/client-253.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-253.webp",
           "alt": "کلید و پریز دلند"
         },
         {
-          "src": "public/Images/products/switch-socket/deland/client-254.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-254.webp",
           "alt": "کلید و پریز دلند"
         },
         {
-          "src": "public/Images/products/switch-socket/deland/client-255.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-255.webp",
           "alt": "کلید و پریز دلند"
         },
         {
-          "src": "public/Images/products/switch-socket/deland/client-256.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-256.webp",
           "alt": "کلید و پریز دلند"
         },
         {
-          "src": "public/Images/products/switch-socket/deland/client-258.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-258.webp",
           "alt": "کلید و پریز دلند"
         },
         {
-          "src": "public/Images/products/switch-socket/deland/client-259.jpg",
+          "src": "public/Images/products/switch-socket/deland/client-259.webp",
           "alt": "کلید و پریز دلند"
         }
       ],
@@ -647,23 +647,23 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/iran-electric/client-280.jpg",
+          "src": "public/Images/products/switch-socket/iran-electric/client-280.webp",
           "alt": "کلید و پریز ایران الکتریک"
         },
         {
-          "src": "public/Images/products/switch-socket/iran-electric/client-281.jpg",
+          "src": "public/Images/products/switch-socket/iran-electric/client-281.webp",
           "alt": "کلید و پریز ایران الکتریک"
         },
         {
-          "src": "public/Images/products/switch-socket/iran-electric/client-282.jpg",
+          "src": "public/Images/products/switch-socket/iran-electric/client-282.webp",
           "alt": "کلید و پریز ایران الکتریک"
         },
         {
-          "src": "public/Images/products/switch-socket/iran-electric/client-283.jpg",
+          "src": "public/Images/products/switch-socket/iran-electric/client-283.webp",
           "alt": "کلید و پریز ایران الکتریک"
         },
         {
-          "src": "public/Images/products/switch-socket/iran-electric/client-284.jpg",
+          "src": "public/Images/products/switch-socket/iran-electric/client-284.webp",
           "alt": "کلید و پریز ایران الکتریک"
         }
       ],
@@ -691,19 +691,19 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/part/client-274.jpg",
+          "src": "public/Images/products/switch-socket/part/client-274.webp",
           "alt": "کلید و پریز پارت"
         },
         {
-          "src": "public/Images/products/switch-socket/part/client-275.jpg",
+          "src": "public/Images/products/switch-socket/part/client-275.webp",
           "alt": "کلید و پریز پارت"
         },
         {
-          "src": "public/Images/products/switch-socket/part/client-276.jpg",
+          "src": "public/Images/products/switch-socket/part/client-276.webp",
           "alt": "کلید و پریز پارت"
         },
         {
-          "src": "public/Images/products/switch-socket/part/client-277.jpg",
+          "src": "public/Images/products/switch-socket/part/client-277.webp",
           "alt": "کلید و پریز پارت"
         }
       ],
@@ -732,27 +732,27 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-261.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-261.webp",
           "alt": "کلید و پریز آسیا الکتریک"
         },
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-262.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-262.webp",
           "alt": "کلید و پریز آسیا الکتریک"
         },
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-263.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-263.webp",
           "alt": "کلید و پریز آسیا الکتریک"
         },
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-264.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-264.webp",
           "alt": "کلید و پریز آسیا الکتریک"
         },
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-265.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-265.webp",
           "alt": "کلید و پریز آسیا الکتریک"
         },
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-266.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-266.webp",
           "alt": "کلید و پریز آسیا الکتریک"
         }
       ],
@@ -780,7 +780,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/lighting/pars-shahab/client-288.jpg",
+          "src": "public/Images/products/lighting/pars-shahab/client-288.webp",
           "alt": "نشان پارس شهاب",
           "role": "brand-logo"
         }
@@ -804,31 +804,31 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/lighting/zfr/client-300.jpg",
+          "src": "public/Images/products/lighting/zfr/client-300.webp",
           "alt": "روشنایی، چراغ و پنل ZFR"
         },
         {
-          "src": "public/Images/products/lighting/zfr/client-301.jpg",
+          "src": "public/Images/products/lighting/zfr/client-301.webp",
           "alt": "روشنایی، چراغ و پنل ZFR"
         },
         {
-          "src": "public/Images/products/lighting/zfr/client-302.jpg",
+          "src": "public/Images/products/lighting/zfr/client-302.webp",
           "alt": "روشنایی، چراغ و پنل ZFR"
         },
         {
-          "src": "public/Images/products/lighting/zfr/client-303.jpg",
+          "src": "public/Images/products/lighting/zfr/client-303.webp",
           "alt": "روشنایی، چراغ و پنل ZFR"
         },
         {
-          "src": "public/Images/products/lighting/zfr/client-304.jpg",
+          "src": "public/Images/products/lighting/zfr/client-304.webp",
           "alt": "روشنایی، چراغ و پنل ZFR"
         },
         {
-          "src": "public/Images/products/lighting/zfr/client-305.jpg",
+          "src": "public/Images/products/lighting/zfr/client-305.webp",
           "alt": "روشنایی، چراغ و پنل ZFR"
         },
         {
-          "src": "public/Images/products/lighting/zfr/client-306.jpg",
+          "src": "public/Images/products/lighting/zfr/client-306.webp",
           "alt": "روشنایی، چراغ و پنل ZFR"
         }
       ],
@@ -859,7 +859,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/lighting/pars-shoa-toos/client-310.jpg",
+          "src": "public/Images/products/lighting/pars-shoa-toos/client-310.webp",
           "alt": "نشان پارس شعاع توس",
           "role": "brand-logo"
         }
@@ -900,11 +900,11 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/lighting/pars-star/client-312.jpg",
+          "src": "public/Images/products/lighting/pars-star/client-312.webp",
           "alt": "روشنایی، چراغ و پنل پارس استار"
         },
         {
-          "src": "public/Images/products/lighting/pars-star/client-313.jpg",
+          "src": "public/Images/products/lighting/pars-star/client-313.webp",
           "alt": "روشنایی، چراغ و پنل پارس استار"
         }
       ],
@@ -929,7 +929,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/lighting/pars-arvand/client-316.jpg",
+          "src": "public/Images/products/lighting/pars-arvand/client-316.webp",
           "alt": "نشان پارس اروند",
           "role": "brand-logo"
         }
@@ -953,7 +953,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/intercom/taba/client-319.jpg",
+          "src": "public/Images/products/intercom/taba/client-319.webp",
           "alt": "نشان تابا",
           "role": "brand-logo"
         }
@@ -978,7 +978,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/intercom/simaran/client-323.jpg",
+          "src": "public/Images/products/intercom/simaran/client-323.webp",
           "alt": "نشان سیماران",
           "role": "brand-logo"
         }
@@ -1002,7 +1002,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/intercom/electropeyk/client-329.jpg",
+          "src": "public/Images/products/intercom/electropeyk/client-329.webp",
           "alt": "نشان الکتروپیک",
           "role": "brand-logo"
         }
@@ -1026,7 +1026,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/part/client-299.jpg",
+          "src": "public/Images/products/switch-socket/part/client-299.webp",
           "alt": "نشان پارت",
           "role": "brand-logo"
         }
@@ -1064,7 +1064,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/shil-iran/client-336.png",
+          "src": "public/Images/products/fuse/shil-iran/client-336.webp",
           "alt": "نشان شیل ایران",
           "role": "brand-logo"
         }
@@ -1086,11 +1086,11 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/surge-protector/tavator/client-353.jpg",
+          "src": "public/Images/products/surge-protector/tavator/client-353.webp",
           "alt": "محافظ و چندراهی تواتر"
         },
         {
-          "src": "public/Images/products/surge-protector/tavator/client-354.jpg",
+          "src": "public/Images/products/surge-protector/tavator/client-354.webp",
           "alt": "محافظ و چندراهی تواتر"
         }
       ],
@@ -1114,7 +1114,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/lighting/pars-arvand/client-316.jpg",
+          "src": "public/Images/products/lighting/pars-arvand/client-316.webp",
           "alt": "نشان پارس اروند",
           "role": "brand-logo"
         }
@@ -1136,7 +1136,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/surge-protector/behdad/client-348.jpg",
+          "src": "public/Images/products/surge-protector/behdad/client-348.webp",
           "alt": "نشان بهداد",
           "role": "brand-logo"
         }
@@ -1160,7 +1160,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/dena/client-357.jpg",
+          "src": "public/Images/products/fuse/dena/client-357.webp",
           "alt": "نشان دنا",
           "role": "brand-logo"
         }
@@ -1184,7 +1184,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/lighting/pars-arvand/client-316.jpg",
+          "src": "public/Images/products/lighting/pars-arvand/client-316.webp",
           "alt": "نشان پارس اروند",
           "role": "brand-logo"
         }
@@ -1206,43 +1206,43 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/shil-iran/client-334.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-334.webp",
           "alt": "فیوز و جعبه فیوز شیل ایران"
         },
         {
-          "src": "public/Images/products/fuse/shil-iran/client-335.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-335.webp",
           "alt": "فیوز و جعبه فیوز شیل ایران"
         },
         {
-          "src": "public/Images/products/fuse/shil-iran/client-337.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-337.webp",
           "alt": "فیوز و جعبه فیوز شیل ایران"
         },
         {
-          "src": "public/Images/products/fuse/shil-iran/client-338.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-338.webp",
           "alt": "فیوز و جعبه فیوز شیل ایران"
         },
         {
-          "src": "public/Images/products/fuse/shil-iran/client-339.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-339.webp",
           "alt": "فیوز و جعبه فیوز شیل ایران"
         },
         {
-          "src": "public/Images/products/fuse/shil-iran/client-340.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-340.webp",
           "alt": "فیوز و جعبه فیوز شیل ایران"
         },
         {
-          "src": "public/Images/products/fuse/shil-iran/client-341.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-341.webp",
           "alt": "فیوز و جعبه فیوز شیل ایران"
         },
         {
-          "src": "public/Images/products/fuse/shil-iran/client-342.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-342.webp",
           "alt": "فیوز و جعبه فیوز شیل ایران"
         },
         {
-          "src": "public/Images/products/fuse/shil-iran/client-343.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-343.webp",
           "alt": "فیوز و جعبه فیوز شیل ایران"
         },
         {
-          "src": "public/Images/products/fuse/shil-iran/client-344.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-344.webp",
           "alt": "فیوز و جعبه فیوز شیل ایران"
         }
       ],
@@ -1276,95 +1276,95 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/darya/client-363.png",
+          "src": "public/Images/products/fuse/darya/client-363.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-364.png",
+          "src": "public/Images/products/fuse/darya/client-364.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-365.png",
+          "src": "public/Images/products/fuse/darya/client-365.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-366.png",
+          "src": "public/Images/products/fuse/darya/client-366.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-367.png",
+          "src": "public/Images/products/fuse/darya/client-367.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-368.png",
+          "src": "public/Images/products/fuse/darya/client-368.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-369.png",
+          "src": "public/Images/products/fuse/darya/client-369.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-370.jpg",
+          "src": "public/Images/products/fuse/darya/client-370.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-371.jpg",
+          "src": "public/Images/products/fuse/darya/client-371.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-372.png",
+          "src": "public/Images/products/fuse/darya/client-372.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-373.png",
+          "src": "public/Images/products/fuse/darya/client-373.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-374.jpg",
+          "src": "public/Images/products/fuse/darya/client-374.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-375.png",
+          "src": "public/Images/products/fuse/darya/client-375.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-376.png",
+          "src": "public/Images/products/fuse/darya/client-376.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-377.png",
+          "src": "public/Images/products/fuse/darya/client-377.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-378.jpg",
+          "src": "public/Images/products/fuse/darya/client-378.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-379.jpg",
+          "src": "public/Images/products/fuse/darya/client-379.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-380.jpg",
+          "src": "public/Images/products/fuse/darya/client-380.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-381.jpg",
+          "src": "public/Images/products/fuse/darya/client-381.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-382.jpg",
+          "src": "public/Images/products/fuse/darya/client-382.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-383.jpg",
+          "src": "public/Images/products/fuse/darya/client-383.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-384.jpg",
+          "src": "public/Images/products/fuse/darya/client-384.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-385.jpg",
+          "src": "public/Images/products/fuse/darya/client-385.webp",
           "alt": "فیوز و جعبه فیوز دریا"
         }
       ],
@@ -1409,7 +1409,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/pars-star/client-351.jpg",
+          "src": "public/Images/products/fuse/pars-star/client-351.webp",
           "alt": "جعبه فیوز پارس استار"
         }
       ],
@@ -1448,7 +1448,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fan/damandeh/client-386.jpg",
+          "src": "public/Images/products/fan/damandeh/client-386.webp",
           "alt": "نشان دمنده",
           "role": "brand-logo"
         }
@@ -1472,7 +1472,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fan/pars-khazar/client-392.jpg",
+          "src": "public/Images/products/fan/pars-khazar/client-392.webp",
           "alt": "نشان پارس خزر",
           "role": "brand-logo"
         }
@@ -1496,7 +1496,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fan/khazar-fan/client-396.png",
+          "src": "public/Images/products/fan/khazar-fan/client-396.webp",
           "alt": "هواکش و پنکه خزر فن"
         }
       ],
@@ -1600,19 +1600,19 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/duct-tape/danub/client-408.jpg",
+          "src": "public/Images/products/duct-tape/danub/client-408.webp",
           "alt": "داکت و چسب دانوب"
         },
         {
-          "src": "public/Images/products/duct-tape/danub/client-409.jpg",
+          "src": "public/Images/products/duct-tape/danub/client-409.webp",
           "alt": "داکت و چسب دانوب"
         },
         {
-          "src": "public/Images/products/duct-tape/danub/client-411.jpg",
+          "src": "public/Images/products/duct-tape/danub/client-411.webp",
           "alt": "داکت و چسب دانوب"
         },
         {
-          "src": "public/Images/products/duct-tape/danub/client-412.jpg",
+          "src": "public/Images/products/duct-tape/danub/client-412.webp",
           "alt": "داکت و چسب دانوب"
         }
       ],
@@ -1654,7 +1654,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-261.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-261.webp",
           "alt": "کلید و پریز آسیا الکتریک کریستال؛ قاب نقره‌ای، مکانیزم نقره‌ای"
         }
       ],
@@ -1694,7 +1694,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-262.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-262.webp",
           "alt": "کلید و پریز آسیا الکتریک کریستال؛ قاب مشکی، مکانیزم نقره‌ای"
         }
       ],
@@ -1734,7 +1734,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-263.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-263.webp",
           "alt": "کلید و پریز آسیا الکتریک کریستال؛ قاب بژ، مکانیزم طلایی"
         }
       ],
@@ -1774,7 +1774,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-264.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-264.webp",
           "alt": "کلید و پریز آسیا الکتریک کریستال؛ قاب صدفی، مکانیزم طلایی"
         }
       ],
@@ -1814,7 +1814,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-265.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-265.webp",
           "alt": "کلید و پریز آسیا الکتریک کریستال؛ قاب مشکی، مکانیزم طلایی"
         }
       ],
@@ -1854,7 +1854,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/asia-electric/client-266.jpg",
+          "src": "public/Images/products/switch-socket/asia-electric/client-266.webp",
           "alt": "کلید و پریز آسیا الکتریک کریستال؛ قاب سفید، مکانیزم طلایی"
         }
       ],
@@ -1894,7 +1894,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/part/client-275.jpg",
+          "src": "public/Images/products/switch-socket/part/client-275.webp",
           "alt": "کلید و پریز پارت الکتریک مدل تابش"
         }
       ],
@@ -1922,7 +1922,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/part/client-276.jpg",
+          "src": "public/Images/products/switch-socket/part/client-276.webp",
           "alt": "مکانیزم کلید و پریز پارت الکتریک"
         }
       ],
@@ -1945,11 +1945,11 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/iran-electric/client-282.jpg",
+          "src": "public/Images/products/switch-socket/iran-electric/client-282.webp",
           "alt": "کلید و پریز ایران الکتریک مدل ارس"
         },
         {
-          "src": "public/Images/products/switch-socket/iran-electric/client-283.jpg",
+          "src": "public/Images/products/switch-socket/iran-electric/client-283.webp",
           "alt": "کلید و پریز ایران الکتریک مدل ارس"
         }
       ],
@@ -1978,7 +1978,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/switch-socket/iran-electric/client-284.jpg",
+          "src": "public/Images/products/switch-socket/iran-electric/client-284.webp",
           "alt": "کلید و پریز ایران الکتریک مدل ایران"
         }
       ],
@@ -2006,11 +2006,11 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/lighting/zfr/client-301.jpg",
+          "src": "public/Images/products/lighting/zfr/client-301.webp",
           "alt": "پروژکتور LED برند ZFR"
         },
         {
-          "src": "public/Images/products/lighting/zfr/client-302.jpg",
+          "src": "public/Images/products/lighting/zfr/client-302.webp",
           "alt": "پروژکتور LED برند ZFR"
         }
       ],
@@ -2034,11 +2034,11 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/lighting/zfr/client-303.jpg",
+          "src": "public/Images/products/lighting/zfr/client-303.webp",
           "alt": "لامپ هالوژنی ZFR"
         },
         {
-          "src": "public/Images/products/lighting/zfr/client-305.jpg",
+          "src": "public/Images/products/lighting/zfr/client-305.webp",
           "alt": "لامپ هالوژنی ZFR"
         }
       ],
@@ -2062,11 +2062,11 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/lighting/zfr/client-304.jpg",
+          "src": "public/Images/products/lighting/zfr/client-304.webp",
           "alt": "سوکت لامپ هالوژنی و سوزنی"
         },
         {
-          "src": "public/Images/products/lighting/zfr/client-306.jpg",
+          "src": "public/Images/products/lighting/zfr/client-306.webp",
           "alt": "سوکت لامپ هالوژنی و سوزنی"
         }
       ],
@@ -2090,11 +2090,11 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/lighting/pars-star/client-312.jpg",
+          "src": "public/Images/products/lighting/pars-star/client-312.webp",
           "alt": "لامپ LED پارس استار"
         },
         {
-          "src": "public/Images/products/lighting/pars-star/client-313.jpg",
+          "src": "public/Images/products/lighting/pars-star/client-313.webp",
           "alt": "لامپ LED پارس استار"
         }
       ],
@@ -2118,7 +2118,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/shil-iran/client-334.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-334.webp",
           "alt": "کلید اتوماتیک شیل ایران"
         }
       ],
@@ -2141,7 +2141,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/shil-iran/client-335.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-335.webp",
           "alt": "محافظ جان شیل ایران"
         }
       ],
@@ -2164,11 +2164,11 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/shil-iran/client-339.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-339.webp",
           "alt": "کلید مینیاتوری شیل ایران"
         },
         {
-          "src": "public/Images/products/fuse/shil-iran/client-344.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-344.webp",
           "alt": "کلید مینیاتوری شیل ایران"
         }
       ],
@@ -2192,7 +2192,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/shil-iran/client-343.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-343.webp",
           "alt": "کلید مینیاتوری فاز و نول شیل ایران"
         }
       ],
@@ -2215,7 +2215,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/shil-iran/client-340.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-340.webp",
           "alt": "چراغ سیگنال شیل ایران"
         }
       ],
@@ -2238,7 +2238,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/shil-iran/client-341.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-341.webp",
           "alt": "شستی استارت و استاپ شیل ایران"
         }
       ],
@@ -2261,7 +2261,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/shil-iran/client-342.jpg",
+          "src": "public/Images/products/fuse/shil-iran/client-342.webp",
           "alt": "کنتاکتور شیل ایران"
         }
       ],
@@ -2284,7 +2284,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/pars-star/client-351.jpg",
+          "src": "public/Images/products/fuse/pars-star/client-351.webp",
           "alt": "جعبه فیوز پارس استار"
         }
       ],
@@ -2307,11 +2307,11 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/surge-protector/tavator/client-353.jpg",
+          "src": "public/Images/products/surge-protector/tavator/client-353.webp",
           "alt": "محافظ و تجهیزات حفاظت ولتاژ تواتر مواج"
         },
         {
-          "src": "public/Images/products/surge-protector/tavator/client-354.jpg",
+          "src": "public/Images/products/surge-protector/tavator/client-354.webp",
           "alt": "محافظ و تجهیزات حفاظت ولتاژ تواتر مواج"
         }
       ],
@@ -2335,15 +2335,15 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/darya/client-363.png",
+          "src": "public/Images/products/fuse/darya/client-363.webp",
           "alt": "محافظ جان ترکیبی RCBO دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-364.png",
+          "src": "public/Images/products/fuse/darya/client-364.webp",
           "alt": "محافظ جان ترکیبی RCBO دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-365.png",
+          "src": "public/Images/products/fuse/darya/client-365.webp",
           "alt": "محافظ جان ترکیبی RCBO دریا"
         }
       ],
@@ -2373,15 +2373,15 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/darya/client-366.png",
+          "src": "public/Images/products/fuse/darya/client-366.webp",
           "alt": "محافظ جان RCCB دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-367.png",
+          "src": "public/Images/products/fuse/darya/client-367.webp",
           "alt": "محافظ جان RCCB دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-368.png",
+          "src": "public/Images/products/fuse/darya/client-368.webp",
           "alt": "محافظ جان RCCB دریا"
         }
       ],
@@ -2411,15 +2411,15 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/darya/client-369.png",
+          "src": "public/Images/products/fuse/darya/client-369.webp",
           "alt": "کلید مینیاتوری DC دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-370.jpg",
+          "src": "public/Images/products/fuse/darya/client-370.webp",
           "alt": "کلید مینیاتوری DC دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-371.jpg",
+          "src": "public/Images/products/fuse/darya/client-371.webp",
           "alt": "کلید مینیاتوری DC دریا"
         }
       ],
@@ -2449,11 +2449,11 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/darya/client-372.png",
+          "src": "public/Images/products/fuse/darya/client-372.webp",
           "alt": "کلید مینیاتوری AC دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-373.png",
+          "src": "public/Images/products/fuse/darya/client-373.webp",
           "alt": "کلید مینیاتوری AC دریا"
         }
       ],
@@ -2482,7 +2482,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/darya/client-374.jpg",
+          "src": "public/Images/products/fuse/darya/client-374.webp",
           "alt": "کنتاکت کمکی دریا"
         }
       ],
@@ -2505,15 +2505,15 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/darya/client-375.png",
+          "src": "public/Images/products/fuse/darya/client-375.webp",
           "alt": "سکسیونر و پایه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-376.png",
+          "src": "public/Images/products/fuse/darya/client-376.webp",
           "alt": "سکسیونر و پایه فیوز دریا"
         },
         {
-          "src": "public/Images/products/fuse/darya/client-377.png",
+          "src": "public/Images/products/fuse/darya/client-377.webp",
           "alt": "سکسیونر و پایه فیوز دریا"
         }
       ],
@@ -2538,7 +2538,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/darya/client-378.jpg",
+          "src": "public/Images/products/fuse/darya/client-378.webp",
           "alt": "کلید مینیاتوری با قدرت قطع بالا دریا"
         }
       ],
@@ -2561,7 +2561,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fuse/darya/client-379.jpg",
+          "src": "public/Images/products/fuse/darya/client-379.webp",
           "alt": "فیوز کاردی دریا"
         }
       ],
@@ -2584,7 +2584,7 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/fan/khazar-fan/client-396.png",
+          "src": "public/Images/products/fan/khazar-fan/client-396.webp",
           "alt": "هواکش خزر فن"
         }
       ],
@@ -2605,11 +2605,11 @@ window.CATALOG = {
       "brands": [],
       "images": [
         {
-          "src": "public/Images/products/pvc-pipe/general/client-397.png",
+          "src": "public/Images/products/pvc-pipe/general/client-397.webp",
           "alt": "لوله برق PVC"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-404.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-404.webp",
           "alt": "لوله برق PVC"
         }
       ],
@@ -2636,11 +2636,11 @@ window.CATALOG = {
       "brands": [],
       "images": [
         {
-          "src": "public/Images/products/pvc-pipe/general/client-398.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-398.webp",
           "alt": "زانوی معمولی لوله برق"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-400.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-400.webp",
           "alt": "زانوی معمولی لوله برق"
         }
       ],
@@ -2662,19 +2662,19 @@ window.CATALOG = {
       "brands": [],
       "images": [
         {
-          "src": "public/Images/products/pvc-pipe/general/client-399.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-399.webp",
           "alt": "زانوی عصایی لوله برق"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-401.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-401.webp",
           "alt": "زانوی عصایی لوله برق"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-402.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-402.webp",
           "alt": "زانوی عصایی لوله برق"
         },
         {
-          "src": "public/Images/products/pvc-pipe/general/client-403.jpg",
+          "src": "public/Images/products/pvc-pipe/general/client-403.webp",
           "alt": "زانوی عصایی لوله برق"
         }
       ],
@@ -2700,19 +2700,19 @@ window.CATALOG = {
       ],
       "images": [
         {
-          "src": "public/Images/products/duct-tape/danub/client-408.jpg",
+          "src": "public/Images/products/duct-tape/danub/client-408.webp",
           "alt": "داکت و تجهیزات سیم‌کشی دانوب"
         },
         {
-          "src": "public/Images/products/duct-tape/danub/client-409.jpg",
+          "src": "public/Images/products/duct-tape/danub/client-409.webp",
           "alt": "داکت و تجهیزات سیم‌کشی دانوب"
         },
         {
-          "src": "public/Images/products/duct-tape/danub/client-411.jpg",
+          "src": "public/Images/products/duct-tape/danub/client-411.webp",
           "alt": "داکت و تجهیزات سیم‌کشی دانوب"
         },
         {
-          "src": "public/Images/products/duct-tape/danub/client-412.jpg",
+          "src": "public/Images/products/duct-tape/danub/client-412.webp",
           "alt": "داکت و تجهیزات سیم‌کشی دانوب"
         }
       ],
@@ -2736,7 +2736,7 @@ window.CATALOG = {
       "brands": [],
       "images": [
         {
-          "src": "public/Images/products/fuse/general/client-350.jpg",
+          "src": "public/Images/products/fuse/general/client-350.webp",
           "alt": "جعبه فیوز ساختمانی با درپوش تیره"
         }
       ],
@@ -3002,7 +3002,7 @@ window.CATALOG = {
     {
       "id": "semnan",
       "title": "سمنان",
-      "logo": "public/Images/products/wire-cable/semnan/client-294.jpg"
+      "logo": "public/Images/products/wire-cable/semnan/client-294.webp"
     },
     {
       "id": "afsharnejad",
@@ -3011,42 +3011,42 @@ window.CATALOG = {
     {
       "id": "bartar",
       "title": "برتر",
-      "logo": "public/Images/products/wire-cable/bartar/client-295.jpg"
+      "logo": "public/Images/products/wire-cable/bartar/client-295.webp"
     },
     {
       "id": "amol",
       "title": "آمل",
-      "logo": "public/Images/products/wire-cable/amol/client-237.png"
+      "logo": "public/Images/products/wire-cable/amol/client-237.webp"
     },
     {
       "id": "deland",
       "title": "دلند",
-      "logo": "public/Images/products/switch-socket/deland/client-297.jpg"
+      "logo": "public/Images/products/switch-socket/deland/client-297.webp"
     },
     {
       "id": "iran-electric",
       "title": "ایران الکتریک",
-      "logo": "public/Images/products/switch-socket/iran-electric/client-296.jpg"
+      "logo": "public/Images/products/switch-socket/iran-electric/client-296.webp"
     },
     {
       "id": "part",
       "title": "پارت",
-      "logo": "public/Images/products/switch-socket/part/client-299.jpg"
+      "logo": "public/Images/products/switch-socket/part/client-299.webp"
     },
     {
       "id": "pars-shahab",
       "title": "پارس شهاب",
-      "logo": "public/Images/products/lighting/pars-shahab/client-288.jpg"
+      "logo": "public/Images/products/lighting/pars-shahab/client-288.webp"
     },
     {
       "id": "zfr",
       "title": "ZFR",
-      "logo": "public/Images/products/lighting/zfr/client-291.jpg"
+      "logo": "public/Images/products/lighting/zfr/client-291.webp"
     },
     {
       "id": "pars-shoa-toos",
       "title": "پارس شعاع توس",
-      "logo": "public/Images/products/lighting/pars-shoa-toos/client-310.jpg"
+      "logo": "public/Images/products/lighting/pars-shoa-toos/client-310.webp"
     },
     {
       "id": "sahand-ava",
@@ -3055,27 +3055,27 @@ window.CATALOG = {
     {
       "id": "pars-star",
       "title": "پارس استار",
-      "logo": "public/Images/products/lighting/pars-star/client-311.jpg"
+      "logo": "public/Images/products/lighting/pars-star/client-311.webp"
     },
     {
       "id": "pars-arvand",
       "title": "پارس اروند",
-      "logo": "public/Images/products/lighting/pars-arvand/client-316.jpg"
+      "logo": "public/Images/products/lighting/pars-arvand/client-316.webp"
     },
     {
       "id": "taba",
       "title": "تابا",
-      "logo": "public/Images/products/intercom/taba/client-319.jpg"
+      "logo": "public/Images/products/intercom/taba/client-319.webp"
     },
     {
       "id": "simaran",
       "title": "سیماران",
-      "logo": "public/Images/products/intercom/simaran/client-323.jpg"
+      "logo": "public/Images/products/intercom/simaran/client-323.webp"
     },
     {
       "id": "electropeyk",
       "title": "الکتروپیک",
-      "logo": "public/Images/products/intercom/electropeyk/client-329.jpg"
+      "logo": "public/Images/products/intercom/electropeyk/client-329.webp"
     },
     {
       "id": "kian",
@@ -3084,7 +3084,7 @@ window.CATALOG = {
     {
       "id": "shil-iran",
       "title": "شیل ایران",
-      "logo": "public/Images/products/fuse/shil-iran/client-336.png"
+      "logo": "public/Images/products/fuse/shil-iran/client-336.webp"
     },
     {
       "id": "tavator",
@@ -3093,12 +3093,12 @@ window.CATALOG = {
     {
       "id": "behdad",
       "title": "بهداد",
-      "logo": "public/Images/products/surge-protector/behdad/client-348.jpg"
+      "logo": "public/Images/products/surge-protector/behdad/client-348.webp"
     },
     {
       "id": "dena",
       "title": "دنا",
-      "logo": "public/Images/products/fuse/dena/client-357.jpg"
+      "logo": "public/Images/products/fuse/dena/client-357.webp"
     },
     {
       "id": "darya",
@@ -3107,17 +3107,17 @@ window.CATALOG = {
     {
       "id": "damandeh",
       "title": "دمنده",
-      "logo": "public/Images/products/fan/damandeh/client-386.jpg"
+      "logo": "public/Images/products/fan/damandeh/client-386.webp"
     },
     {
       "id": "pars-khazar",
       "title": "پارس خزر",
-      "logo": "public/Images/products/fan/pars-khazar/client-392.jpg"
+      "logo": "public/Images/products/fan/pars-khazar/client-392.webp"
     },
     {
       "id": "khazar-fan",
       "title": "خزر فن",
-      "logo": "public/Images/products/fan/khazar-fan/client-394.jpg"
+      "logo": "public/Images/products/fan/khazar-fan/client-394.webp"
     },
     {
       "id": "koolak",

@@ -290,16 +290,16 @@ textarea::placeholder,
  * The text remains on its own opaque surface, with no dark wash over the photo.
  */
 body[data-page="home"] {
-  --page-image: url("../public/Images/background/home.jpg");
+  --page-image: url("../public/Images/background/home.webp");
 }
 body[data-page="products"] {
-  --page-image: url("../public/Images/background/products.jpg");
+  --page-image: url("../public/Images/background/products.webp");
 }
 body[data-page="about"] {
-  --page-image: url("../public/Images/background/about.jpg");
+  --page-image: url("../public/Images/background/about.webp");
 }
 body[data-page="contact"] {
-  --page-image: url("../public/Images/background/contact.jpg");
+  --page-image: url("../public/Images/background/contact.webp");
 }
 .hero.hero-photo,
 .inner-hero {

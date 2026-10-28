@@ -1000,7 +1000,7 @@ footer .brand b {
 .hero-photo {
   background:
     linear-gradient(90deg, #100f0df2 0%, #100f0da8 52%, #100f0d28),
-    url("../public/Images/background/home.jpg") center/cover;
+    url("../public/Images/background/home.webp") center/cover;
 }
 .home-cta {
   padding: 85px 0;
@@ -1125,7 +1125,7 @@ img {
 .hero-photo {
   background:
     linear-gradient(270deg, #100f0df5 8%, #100f0dd9 43%, #100f0d32 100%),
-    url("../public/Images/background/home.jpg") left 44% / cover;
+    url("../public/Images/background/home.webp") left 44% / cover;
 }
 .hero:after {
   background: linear-gradient(0deg, #100f0d8a, transparent 30%);
@@ -1471,7 +1471,7 @@ button:disabled {
   .hero-photo {
     background-image:
       linear-gradient(#100f0dbb, #100f0ded),
-      url("../public/Images/background/home.jpg");
+      url("../public/Images/background/home.webp");
   }
   .inner-hero {
     padding-top: 55px;
