@@ -4,7 +4,7 @@
   // Resolve shared links and assets from the site root, including subfolder hosting.
   const siteRoot = new URL("../", document.currentScript.src);
   const siteUrl = (path) => new URL(path, siteRoot).href;
-  const { categories, products, brands } = window.CATALOG;
+  const { categories, products, brands, documents = [] } = window.CATALOG;
   const shop = window.SHOP;
   const $ = (selector) => document.querySelector(selector);
   const escape = (value) =>
@@ -39,9 +39,14 @@
         brand.id === value || normalize(brand.title) === normalize(value),
     );
   const brandForProduct = (product) => findBrand(product.brands?.[0]);
+  const kindLabel = (product) => product.kind === "group" ? "گروه کالا" :
+    product.kind === "collection" ? "مجموعه برند" : "محصول";
   const brandsForCategory = (categoryId) =>
     brands.filter((brand) =>
-      products.some(
+      documents.some(
+        (item) => item.brandId === brand.id &&
+          (!categoryId || item.categoryIds?.includes(categoryId)),
+      ) || products.some(
         (product) =>
           (!categoryId || product.categoryId === categoryId) &&
           product.brands?.includes(brand.title),
@@ -50,17 +55,60 @@
   const catalogueUrl = (categoryId, brandId = "") => {
     const params = new URLSearchParams({ category: categoryId });
     if (brandId) params.set("brand", brandId);
-    return siteUrl("pages/products.html") + "?" + params + (brandId ? "#productResults" : "");
+    return (
+      siteUrl("pages/products.html") +
+      "?" +
+      params +
+      (brandId ? "#productResults" : "")
+    );
   };
   const brandLinks = (product) =>
     (product.brands || [])
       .map((title) => {
         const brand = findBrand(title);
         return brand
-          ? `<a href="${escape(catalogueUrl(product.categoryId, brand.id))}">${escape(title)} ←</a>`
+          ? `<a href="${escape(catalogueUrl(product.categoryId, brand.id))}">${escape(title)} <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>`
           : `<span>${escape(title)}</span>`;
       })
       .join("");
+  const collectionsFor = (categoryId) =>
+    products.filter((product) => product.kind === "collection" && product.categoryId === categoryId);
+  // Local PDF links only: nothing is embedded or fetched until a visitor clicks.
+  const validDocument = (item) =>
+    /^public\/documents\/[a-zA-Z0-9_/-]+\.pdf$/.test(item.src || "") &&
+    Number.isFinite(item.sizeBytes) && item.sizeBytes > 0;
+  const documentsFor = (categoryId = "", brandId = "", product = null) =>
+    documents.filter((item) =>
+      validDocument(item) &&
+      (!categoryId || item.categoryIds?.includes(categoryId)) &&
+      (!brandId || item.brandId === brandId) &&
+      (!item.productIds?.length || (product && item.productIds.includes(product.id))) &&
+      (!product || product.kind === "group" ||
+        product.brands?.includes(findBrand(item.brandId)?.title)),
+    );
+  const documentSection = (items, headingLevel = 2) => {
+    if (!items.length) return "";
+    const sizeLabel = (bytes) => bytes >= 1024 * 1024
+      ? (bytes / (1024 * 1024)).toLocaleString("fa-IR", { maximumFractionDigits: 1 }) + " مگابایت"
+      : Math.ceil(bytes / 1024).toLocaleString("fa-IR") + " کیلوبایت";
+    return `<section class="document-section" aria-label="کاتالوگ‌ها و فایل‌های PDF">
+      <h${headingLevel}>کاتالوگ‌ها و فایل‌های PDF</h${headingLevel}>
+      <ul class="document-list">${items.map((item) => {
+        const url = escape(siteUrl(item.src));
+        return `<li class="document-card"><div class="document-info">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i><div>
+          <h${headingLevel + 1}>${escape(item.title)}</h${headingLevel + 1}>
+          <p>${item.productIds?.length ? "فایل محصول" : "کاتالوگ برند"} · PDF · ${escape(sizeLabel(item.sizeBytes))}</p></div></div>
+          <div class="document-actions">
+            <a class="button ghost" href="${url}" target="_blank" rel="noopener noreferrer"
+              aria-label="${escape("مشاهده " + item.title + "، در زبانه جدید")}">مشاهده PDF
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            <a class="text-link" href="${url}" download
+              aria-label="${escape("دانلود " + item.title)}">دانلود
+              <i class="fa-solid fa-download" aria-hidden="true"></i></a>
+          </div></li>`;
+      }).join("")}</ul></section>`;
+  };
   const productUrl = (product) => {
     const params = new URLSearchParams({
       id: product.id,
@@ -91,13 +139,14 @@
   function card(product) {
     const category = categoryFor(product);
     const photo = photoList(product)[0];
-    const source = photo?.src || imagePath(category?.background);
+    const logo = product.kind === "collection" ? imagePath(brandForProduct(product)?.logo) : "";
+    const source = logo || photo?.src || imagePath(category?.background);
     return `<a class="product-card" href="${escape(productUrl(product))}">
-      <div class="card-media ${photo ? "product-photo" : ""}">${source ? `<img src="${escape(siteUrl(source))}" alt="${photo ? escape(photo.alt || product.title) : ""}" loading="lazy" width="640" height="400">` : ""}
-      <span class="card-kind">${product.kind === "group" ? "گروه کالا" : "محصول"}</span></div>
+      <div class="card-media ${photo || logo ? "product-photo" : ""}">${source ? `<img src="${escape(siteUrl(source))}" alt="${escape(logo ? product.brands[0] : photo?.alt || (photo ? product.title : ""))}" loading="lazy" width="640" height="400">` : ""}
+      <span class="card-kind">${kindLabel(product)}</span></div>
       <div class="card-content"><small>${escape(category?.title || "")}</small>
       <h3>${escape(product.title)}</h3><p>${escape(product.tagline)}</p>
-      <span class="card-bottom">مشاهده جزئیات <span aria-hidden="true">←</span></span></div></a>`;
+      <span class="card-bottom">مشاهده جزئیات <span aria-hidden="true"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span></span></div></a>`;
   }
 
   // Image failures leave a deliberate placeholder instead of a broken-image icon.
@@ -175,6 +224,7 @@
     const sort = $("#sortProducts");
     const brandFilter = $("#brandFilter");
     const context = $("#catalogContext");
+    const catalogueDocuments = $("#catalogDocuments");
     const count = $("#productCount");
     const empty = $("#emptyState");
     const pagination = $("#pagination");
@@ -242,6 +292,9 @@
         (category) => category.id === state.category,
       );
       const availableBrands = brandsForCategory(state.category);
+      catalogueDocuments.innerHTML = documentSection(
+        state.category || state.brand ? documentsFor(state.category, state.brand) : [],
+      );
       brandFilter.innerHTML =
         '<option value="">همه برندها</option>' +
         availableBrands
@@ -369,7 +422,7 @@
       document.title = "محصول یافت نشد | " + shop.name;
       root.innerHTML = `<section class="container not-found"><p class="eyebrow plain">کاتالوگ محصولات</p>
         <h1>محصول پیدا نشد</h1><p>لینک این محصول معتبر نیست یا اطلاعات آن تغییر کرده است.</p>
-        <a class="button primary" href="${escape(siteUrl("pages/products.html"))}">بازگشت به محصولات ←</a></section>`;
+        <a class="button primary" href="${escape(siteUrl("pages/products.html"))}">بازگشت به محصولات <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a></section>`;
       return;
     }
     // Older group URLs can also select a brand: pages/product.html?id=2&brand=deland.
@@ -394,7 +447,7 @@
       <nav class="breadcrumbs" aria-label="مسیر صفحه"><a href="${escape(siteUrl("index.html"))}">خانه</a><span>/</span>
       <a href="${escape(siteUrl("pages/products.html"))}">محصولات</a><span>/</span><a href="${escape(catalogueUrl(product.categoryId))}">${escape(category?.title)}</a>
       ${product.kind !== "group" && modelBrand ? `<span>/</span><a href="${escape(catalogueUrl(product.categoryId, modelBrand.id))}">${escape(modelBrand.title)}</a><span>/</span><span aria-current="page">${escape(product.title)}</span>` : ""}</nav>
-      <p class="eyebrow plain">${product.kind === "group" ? "معرفی گروه کالا" : "معرفی محصول"}</p><h1>${escape(product.title)}</h1>
+      <p class="eyebrow plain">${product.kind === "group" ? "معرفی گروه کالا" : product.kind === "collection" ? "معرفی مجموعه برند" : "معرفی محصول"}</p><h1>${escape(product.title)}</h1>
       <p>${escape(product.tagline)}</p></div></section>
       <section class="container product-detail"><div class="gallery">
         ${
@@ -411,18 +464,23 @@
                 .join("")}</div>`
             : ""
         }`
-            : `<div class="gallery-placeholder"><span aria-hidden="true">ϟ</span><p>تصاویر محصول به‌زودی اضافه می‌شود</p></div>`
+            : `<div class="gallery-placeholder"><span aria-hidden="true"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span><p>${product.kind === "collection" ? "تصاویر این برند به‌زودی اضافه می‌شود" : "تصاویر محصول به‌زودی اضافه می‌شود"}</p></div>`
         }
-        <p class="gallery-caption">${product.kind === "group" ? "تصویر پس‌زمینه برای معرفی گروه کالا است." : "برای تأیید مدل و موجودی با فروشگاه تماس بگیرید."}</p>
+        <p class="gallery-caption">${photos.length && photos.every((photo) => photo.role === "brand-logo") ? "نشان برند؛ تصاویر محصولات به‌زودی تکمیل می‌شود." : product.kind === "group" && product.categoryId !== "pvc-pipe" ? "تصویر پس‌زمینه برای معرفی گروه کالا است." : "برای تأیید مدل و موجودی با فروشگاه تماس بگیرید."}</p>
       </div><div class="detail-copy"><p class="eyebrow plain">انتخاب آگاهانه، خرید مطمئن</p>
         <h2>درباره ${escape(product.kind === "group" ? category?.title : product.title)}</h2><p>${escape(product.description)}</p>
         ${product.brands?.length ? `<h3>${product.kind === "group" ? "انتخاب برند و مشاهده مدل‌ها" : "برند محصول"}</h3><div class="brand-tags">${brandLinks(product)}</div>` : ""}
+        ${documentSection(documentsFor(product.categoryId, "", product), 3)}
         <div class="inquiry-panel"><h3>برای انتخاب مدل مناسب راهنمایی می‌خواهید؟</h3><p>مشخصات، قیمت و موجودی مدل موردنظر را از فروشگاه بپرسید.</p>
         <div class="modal-actions"><a class="button primary" href="tel:${shop.phone}">تماس با فروشگاه</a>
-        <a class="button ghost" href="https://wa.me/${shop.whatsapp}?text=${inquiry}" target="_blank" rel="noreferrer">استعلام در واتس‌اپ ↗</a>
-        <a class="text-link" href="${escape(siteUrl("pages/contact.html"))}?${escape(new URLSearchParams({ product: product.id }).toString())}">فرم درخواست ←</a></div></div>
+        <a class="button ghost" href="https://wa.me/${shop.whatsapp}?text=${inquiry}" target="_blank" rel="noreferrer">استعلام در واتس‌اپ <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        <a class="text-link" href="${escape(siteUrl("pages/contact.html"))}?${escape(new URLSearchParams({ product: product.id }).toString())}">فرم درخواست <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a></div></div>
       </div></section>
-      <section class="container specifications"><h2>مشخصات فنی</h2>
+      ${product.kind === "group" && collectionsFor(product.categoryId).length ? `<section class="container brand-collections">
+        <h2>انتخاب برند</h2><div class="products-grid">${collectionsFor(product.categoryId).map(card).join("")}</div></section>` : ""}
+      ${product.kind === "collection" ? `<section class="container brand-models"><h2>محصولات این مجموعه</h2>
+        <div class="products-grid">${products.filter((item) => item.kind === "product" && item.categoryId === product.categoryId && item.brands?.includes(product.brands[0])).map(card).join("") || '<p class="muted">برای انتخاب مدل، تصاویر و کاتالوگ این برند را بررسی کنید یا با فروشگاه تماس بگیرید.</p>'}</div></section>` : ""}
+      <section class="container specifications"><h2>${product.kind === "collection" ? "اطلاعات مجموعه" : "مشخصات فنی"}</h2>
       ${
         product.specs?.length
           ? `<dl class="spec-list">${product.specs
@@ -434,7 +492,7 @@
           : `<p class="muted">مشخصات دقیق پس از انتخاب برند و مدل اعلام می‌شود. برای اطلاعات بیشتر با فروشگاه در تماس باشید.</p>`
       }
       </section><section class="container related-section"><div class="section-heading"><h2>بیشتر ببینید</h2>
-      <a class="text-link" href="${escape(siteUrl("pages/products.html"))}">همه محصولات ←</a></div><div class="products-grid" id="relatedProducts"></div></section>`;
+      <a class="text-link" href="${escape(siteUrl("pages/products.html"))}">همه محصولات <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a></div><div class="products-grid" id="relatedProducts"></div></section>`;
     setBackground($(".detail-banner"), category?.background);
     setBackground($(".gallery-placeholder"), category?.background);
     const related = [
