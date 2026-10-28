@@ -3,7 +3,21 @@
   "use strict";
   // Resolve shared links and assets from the site root, including subfolder hosting.
   const siteRoot = new URL("../", document.currentScript.src);
-  const siteUrl = (path) => new URL(path, siteRoot).href;
+  const pageRoutes = {
+    "index.html": "",
+    "pages/products.html": "products/",
+    "pages/product.html": "product/",
+    "pages/about.html": "about/",
+    "pages/contact.html": "contact/",
+  };
+  // Keep direct file previews usable; hosted navigation uses clean URLs.
+  const siteUrl = (path) => new URL(
+    window.location.protocol === "file:" ? path : (pageRoutes[path] ?? path),
+    siteRoot,
+  ).href;
+  document.querySelectorAll("[data-page-link]").forEach((link) => {
+    link.href = siteUrl(link.dataset.pageLink);
+  });
   const { categories, products, brands, documents = [] } = window.CATALOG;
   const shop = window.SHOP;
   const $ = (selector) => document.querySelector(selector);
@@ -425,7 +439,7 @@
         <a class="button primary" href="${escape(siteUrl("pages/products.html"))}">بازگشت به محصولات <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a></section>`;
       return;
     }
-    // Older group URLs can also select a brand: pages/product.html?id=2&brand=deland.
+    // Older group URLs can also select a brand: product/?id=2&brand=deland.
     if (product.kind === "group" && selectedBrand) {
       window.location.replace(
         catalogueUrl(product.categoryId, selectedBrand.id),
@@ -525,27 +539,61 @@
 
   const form = $("#contactForm");
   if (form) {
+    const formStatus = $("#formStatus");
+    const emailOptions = $("#emailOptions");
+    const emailDraft = $("#emailDraft");
+    // Clipboard access is optional; the selectable draft always remains available.
+    $("#copyEmailDraft").addEventListener("click", async () => {
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error("Clipboard unavailable");
+        await navigator.clipboard.writeText(emailDraft.value);
+        formStatus.textContent = "متن پیام کپی شد؛ آن را در ایمیل خود بچسبانید و ارسال کنید.";
+      } catch {
+        $("#emailDraftDetails").open = true;
+        emailDraft.focus();
+        emailDraft.select();
+        formStatus.textContent = "متن پیام انتخاب شد؛ آن را کپی کرده و در ایمیل خود ارسال کنید.";
+      }
+    });
+    form.addEventListener("input", () => {
+      if (!emailOptions.hidden) {
+        emailOptions.hidden = true;
+        formStatus.textContent = "اطلاعات تغییر کرد؛ برای ساخت پیش‌نویس جدید دوباره دکمه آماده‌سازی را بزنید.";
+      }
+    });
     const product = findProduct(
       new URLSearchParams(location.search).get("product"),
     );
     if (product) form.elements.subject.value = "استعلام " + product.title;
     form.addEventListener("submit", (event) => {
       event.preventDefault();
+      if (!form.reportValidity()) return;
       const data = new FormData(form);
       const params = new URLSearchParams({
         subject: data.get("subject") || "درخواست از سایت " + shop.name,
         body:
           "نام: " +
           data.get("name") +
+          "\nایمیل: " +
+          data.get("email") +
           "\nتلفن: " +
           data.get("phone") +
           "\n\n" +
           data.get("message"),
       });
-      window.location.href =
-        "mailto:" + shop.email + "?" + params.toString().replace(/\+/g, "%20");
-      $("#formStatus").textContent =
-        "برای تکمیل ارسال، پیام را در برنامه ایمیل خود تأیید کنید.";
+      const mailto = "mailto:" + shop.email + "?" + params.toString().replace(/\+/g, "%20");
+      // Gmail's web handler works without a desktop mailto handler being installed.
+      const gmail = new URL("https://mail.google.com/mail/");
+      gmail.searchParams.set("extsrc", "mailto");
+      gmail.searchParams.set("url", mailto);
+      $("#gmailCompose").href = gmail.href;
+      $("#retryEmailApp").href = mailto;
+      emailDraft.value = "گیرنده: " + shop.email + "\nموضوع: " + params.get("subject") + "\n\n" + params.get("body");
+      emailOptions.hidden = false;
+      formStatus.textContent = "متن پیام آماده است. اگر برنامه ایمیل باز نشد، از گزینه Gmail یا کپی متن پیام استفاده کنید. پیام هنوز ارسال نشده است.";
+      try { window.location.href = mailto; } catch {
+        formStatus.textContent = "مرورگر برنامه ایمیل را باز نکرد. از گزینه Gmail یا کپی متن پیام استفاده کنید؛ پیام هنوز ارسال نشده است.";
+      }
     });
   }
 })();

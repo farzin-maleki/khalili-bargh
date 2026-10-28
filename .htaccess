@@ -1,0 +1,25 @@
+# Public URLs stay clean while the source pages remain in pages/.
+DirectoryIndex disabled
+DirectoryIndex index.html
+Options -MultiViews
+
+RewriteEngine On
+
+# THE_REQUEST only contains the browser's original request. This prevents
+# redirect loops when a clean URL is internally rewritten to its HTML file.
+RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s])
+RewriteRule ^index\.html$ / [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/+(?:pages/)?(?:products|product|about|contact)\.html(?:[?\s])
+RewriteRule ^(?:pages/)?(products|product|about|contact)\.html$ /$1/ [R=301,L]
+
+# Normalize the trailing slash; existing query strings are preserved.
+RewriteRule ^(products|product|about|contact)$ /$1/ [R=301,L]
+
+# Real assets, PDFs, scripts, and directories are served normally.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# These are separate HTML pages, not a single-page-app fallback.
+RewriteRule ^(products|product|about|contact)/$ pages/$1.html [L]

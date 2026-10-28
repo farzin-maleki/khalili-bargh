@@ -20,7 +20,7 @@ jobs:
       - name: Prepare website files
         run: |
           mkdir -p deploy
-          cp index.html deploy/
+          cp index.html .htaccess deploy/
           cp -R JS css pages public deploy/
 
       - name: Upload website to MihanWebHost
